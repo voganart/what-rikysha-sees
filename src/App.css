@@ -1,38 +1,131 @@
-.App {
+.header .container {
+  text-align: center; /* Центрируем всё */
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px 10px;
+}
+
+.header-image {
+  width: 150px;  /* уменьшили картинку */
+  height: auto;
+  margin: 20px auto 0; /* сверху отступ, по центру */
+  display: block;
+}
+
+.title {
+  font-size: 2.4rem;
+  margin: 0;
+  color: #5a3e36;
+}
+
+.subtitle {
+  margin-top: 8px;
+  font-size: 1.1rem;
+  color: #7a5c50;
+  font-weight: 500;
+}
+
+.products-section {
+  max-width: 380px; /* чуть уже, около 80% от 480 */
+  margin: 40px auto;
   text-align: center;
+  padding: 0 10px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.products-section h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #5a3e36;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.carousel-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.products-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* для плавного свайпа на iOS */
+  gap: 16px;
+  padding-bottom: 8px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.products-carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.product-card {
+  flex: 0 0 260px; /* ширина каждого товара */
+  background: #f6e8e1;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  text-align: left;
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.product-card h3 {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  color: #5a3e36;
+}
+
+.product-desc {
+  font-size: 0.85rem;
+  margin: 0 0 10px;
+  color: #7a5c50;
+  line-height: 1.2;
+}
+
+.product-price {
+  font-weight: 700;
+  color: #a67663;
+  font-size: 1.1rem;
+}
+
+.scroll-btn {
+  background: #a67663;
+  border: none;
   color: white;
+  font-size: 1.5rem;
+  padding: 8px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+  z-index: 10;
 }
 
-.App-link {
-  color: #61dafb;
+.scroll-btn:hover {
+  background: #8a5e4a;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.scroll-btn.left {
+  margin-right: 8px;
+}
+
+.scroll-btn.right {
+  margin-left: 8px;
+}
+
+/* Адаптивность для мобильных — кнопки исчезают, свайп работает */
+
+@media (max-width: 480px) {
+  .products-section {
+    max-width: 90vw;
+    padding: 0 5vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  .scroll-btn {
+    display: none;
   }
 }

@@ -68,3 +68,27 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+🚀 Как обновлять сайт
+Чтобы обновлять сайт при изменениях, делаешь два шага:
+
+1️⃣ Коммит и пуш кода:
+
+В терминале (в папке проекта):
+
+bash
+Копировать
+Редактировать
+git add .
+git commit -m "Обновление: добавил товары"
+git push
+📌 Это зальёт обновления кода на GitHub.
+
+2️⃣ Запуск деплоя:
+
+bash
+Копировать
+Редактировать
+npm run deploy
+📌 Это обновит онлайн-версию сайта.
