@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/what-rikysha-sees/static/css/main.110d170d.css",
-    "main.js": "/what-rikysha-sees/static/js/main.070ff474.js",
+    "main.js": "/what-rikysha-sees/static/js/main.9076e87f.js",
     "static/js/453.5a1a4fd2.chunk.js": "/what-rikysha-sees/static/js/453.5a1a4fd2.chunk.js",
     "static/media/Guineapig_1.png": "/what-rikysha-sees/static/media/Guineapig_1.a99ec74031b1eed8bf7b.png",
     "static/media/painting_1.jpg": "/what-rikysha-sees/static/media/painting_1.3245e373f52483827e2a.jpg",
@@ -16,11 +16,11 @@
     "static/media/candle_2.jpg": "/what-rikysha-sees/static/media/candle_2.d8dddb98ac7b9accad79.jpg",
     "index.html": "/what-rikysha-sees/index.html",
     "main.110d170d.css.map": "/what-rikysha-sees/static/css/main.110d170d.css.map",
-    "main.070ff474.js.map": "/what-rikysha-sees/static/js/main.070ff474.js.map",
+    "main.9076e87f.js.map": "/what-rikysha-sees/static/js/main.9076e87f.js.map",
     "453.5a1a4fd2.chunk.js.map": "/what-rikysha-sees/static/js/453.5a1a4fd2.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.110d170d.css",
-    "static/js/main.070ff474.js"
+    "static/js/main.9076e87f.js"
   ]
 }
