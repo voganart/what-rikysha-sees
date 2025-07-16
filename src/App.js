@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import guineapigImg from "./assets/Guineapig_1.jpg";
 import rikyshaImg from "./assets/Rikysha_1.jpg";
 import "./App.css";
+
 
 const allProducts = [
   { id: 1, category: "Свечи", img: rikyshaImg, title: "Свеча Лаванда", description: "Аромат лаванды, 100% воск", price: "1200 ARS" },
@@ -30,7 +31,30 @@ const categories = [
 export default function App() {
   const [filter, setFilter] = useState("Все");
   const [page, setPage] = useState(1);
-  const itemsPerPage = 9;
+  const [itemsPerPage, setItemsPerPage] = useState(9);
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+useEffect(() => {
+  const handleResize = () => {
+    if (window.innerWidth >= 1200) {
+      setItemsPerPage(16); // 4x4
+    } else if (window.innerWidth >= 768) {
+      setItemsPerPage(9); // 3x3
+    } else {
+      setItemsPerPage(4); // меньше для мобил
+    }
+  };
+
+  handleResize(); // вызов при старте
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
+useEffect(() => {
+  const filtered = filter === "Все" ? allProducts : allProducts.filter((p) => p.category === filter);
+  const totalPages = Math.ceil(filtered.length / itemsPerPage);
+  if (page > totalPages) setPage(totalPages || 1);
+}, [itemsPerPage, filter]);
 
   const filteredProducts =
     filter === "Все" ? allProducts : allProducts.filter((p) => p.category === filter);
@@ -67,12 +91,17 @@ export default function App() {
         </select>
 
         <div className="products-grid">
-          {displayedProducts.map(({ id, img, title, description, price }) => (
-            <div key={id} className="product-card">
-              <img src={img} alt={title} />
-              <h3>{title}</h3>
-              <p className="product-desc">{description}</p>
-              <p className="product-price">{price}</p>
+          {displayedProducts.map((product) => (
+            <div
+              key={product.id}
+              className="product-card"
+              onClick={() => setSelectedProduct(product)}
+              style={{ cursor: "pointer" }}
+            >
+              <img src={product.img} alt={product.title} />
+              <h3>{product.title}</h3>
+              <p className="product-desc">{product.description}</p>
+              <p className="product-price">{product.price}</p>
             </div>
           ))}
         </div>
@@ -91,6 +120,24 @@ export default function App() {
           </div>
         )}
       </section>
+
+      {selectedProduct && (
+  <div
+    className="modal-overlay"
+    onClick={() => setSelectedProduct(null)}
+  >
+    <div
+      className="modal-card"
+      onClick={e => e.stopPropagation()}
+    >
+      <button className="modal-close" onClick={() => setSelectedProduct(null)}>×</button>
+      <img src={selectedProduct.img} alt={selectedProduct.title} className="modal-img" />
+      <h3>{selectedProduct.title}</h3>
+      <p className="modal-desc">{selectedProduct.description}</p>
+      <p className="modal-price">{selectedProduct.price}</p>
+    </div>
+  </div>
+)}
     </>
   );
 }
