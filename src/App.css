@@ -1,6 +1,6 @@
 body {
   font-family: 'Roboto', 'Inter', Arial, sans-serif;
-  background: linear-gradient(to top, var(--color-bg-primary) 2%, var(--color-white) 100%);
+  background: linear-gradient(to top, var(--color-bg-primary) 50%, var(--color-white) 90%);
 }
 
 .title, h1, h2, h3 {

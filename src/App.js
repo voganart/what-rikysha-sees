@@ -1,43 +1,31 @@
 import React, { useState, useEffect } from "react";
-import guineapigImg from "./assets/Guineapig_1.jpg";
-import rikyshaImg from "./assets/Rikysha_1.jpg";
 import "./colors.css";
 import "./App.css";
+import guineapigImg from "./assets/Guineapig_1.png";
+import rikyshaImg from "./assets/Rikysha_1.jpg";
+import antiseptic_1 from "./assets/antiseptic_1.jpg";
+import bathbomb_1 from "./assets/bathbomb_1.jpg";
+import candle_1 from "./assets/candle_1.jpg";
+import candle_2 from "./assets/candle_2.jpg";
+import painting_1 from "./assets/painting_1.jpg";
+import perfume_1 from "./assets/perfume_1.jpg";
+import perfume_2 from "./assets/perfume_2.jpg";
+import soap_1 from "./assets/soap_1.jpg";
+import soap_2 from "./assets/soap_2.jpg";
+
 
 
 const allProducts = [
-  { id: 1, category: "candles", img: rikyshaImg, title: "Свеча Лаванда", description: "Аромат лаванды, 100% воск", price: "1200 ARS" },
-  { id: 2, category: "scrubs", img: rikyshaImg, title: "Скраб Кофе", description: "Скраб с кофе и маслом", price: "900 ARS" },
-  { id: 3, category: "mists", img: rikyshaImg, title: "Мист Роза", description: "Увлажнение и свежесть", price: "600 ARS" },
-  { id: 4, category: "bathbombs", img: rikyshaImg, title: "Бомбочка Цитрус", description: "Эффервесцентная", price: "700 ARS" },
-  { id: 5, category: "soap", img: rikyshaImg, title: "Мыло Олива", description: "Натуральное мыло", price: "500 ARS" },
-  { id: 6, category: "perfume", img: rikyshaImg, title: "Духи Лето", description: "Лёгкий аромат", price: "1500 ARS" },
-  { id: 7, category: "antiseptics", img: rikyshaImg, title: "Антисептик Лаванда", description: "С ароматом лаванды", price: "450 ARS" },
-  { id: 8, category: "candles", img: rikyshaImg, title: "Свеча Ваниль", description: "Тёплый аромат", price: "1100 ARS" },
-  { id: 9, category: "candles", img: rikyshaImg, title: "Свеча Кофе", description: "Аромат кофе", price: "1150 ARS" },
-  { id: 10, category: "scrubs", img: rikyshaImg, title: "Скраб Сахар", description: "Скраб с сахаром", price: "850 ARS" },
-];
-
-const categories = [
-  "Все",
-  "Свечи",
-  "Скрабы",
-  "Мисты",
-  "Бомбочки для ванны",
-  "Мыло",
-  "Духи",
-  "Антисептики",
-];
-
-const categoryKeys = [
-  "all",
-  "candles",
-  "scrubs",
-  "mists",
-  "bathbombs",
-  "soap",
-  "perfume",
-  "antiseptics",
+{id:1,category:"soap",img:soap_1,title:"Мыло",description:"Состав: мыло на основе кокоса, краситель, отдушка.",price:"$5000+"},
+{id:2,category:"other",img:painting_1,title:"Круглые картины на заказ",description:"Покрытие акрилом, можно выбрать цветовую гамму.",price:"$20000+"},
+{id:3,category:"candles",img:candle_1,title:"Десертные свечи",description:"Состав: соевый воск, краситель, отдушка.",price:"$15000+"},
+{id:4,category:"perfume",img:perfume_1,title:"Твердые духи (маленькая баночка)",description:"Состав: соевый воск, масло миндаля, витамин Е, отдушка.",price:"$8000+"},
+{id:5,category:"perfume",img:perfume_1,title:"Твердые духи (большая баночка)",description:"Состав: соевый воск, масло миндаля, витамин Е, отдушка.",price:"$11000+"},
+{id:6,category:"soap",img:soap_2,title:"Мыло-десерт",description:"Состав: мыло на основе кокоса, краситель, отдушка.",price:"$10000+"},
+{id:7,category:"antiseptics",img:antiseptic_1,title:"Антисептик",description:"Состав: алоэ-вера, спирт, отдушка, глицерин.",price:"$8000+"},
+{id:8,category:"bathbombs",img:bathbomb_1,title:"Бомбочка для ванны (сердце)",description:"С подарком или без. Лимонная кислота, сода, масло миндаля и др.",price:"$15000+"},
+{id:9,category:"perfume",img:perfume_2,title:"Масляные духи",description:"Состав: масло миндаля, композиция из отдушек.",price:"$8000+"},
+{id:10,category:"candles",img:candle_2,title:"Свечи-напитки со льдом",description:"Соевый воск, гелевый парафин, отдушки, краситель.",price:"$15000+"},
 ];
 
 export default function App() {
@@ -70,7 +58,7 @@ useEffect(() => {
   const filtered = filter === "all" ? allProducts : allProducts.filter((p) => p.category === filter);
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   if (page > totalPages) setPage(totalPages || 1);
-}, [itemsPerPage, filter, allProducts, page]);
+}, [itemsPerPage, filter, page]);
 
 useEffect(() => {
   const onScroll = () => {
@@ -101,7 +89,7 @@ useEffect(() => {
     page * itemsPerPage
   );
 
-  const translations = {
+const translations = {
   ru: {
     title: "What Rikysha Sees",
     subtitle: "Авторская косметика и свечи ручной работы с любовью",
@@ -109,24 +97,11 @@ useEffect(() => {
     filters: [
       { key: "all", label: "Все" },
       { key: "candles", label: "Свечи" },
-      { key: "scrubs", label: "Скрабы" },
-      { key: "mists", label: "Мисты" },
-      { key: "bathbombs", label: "Бомбочки для ванны" },
       { key: "soap", label: "Мыло" },
+      { key: "bathbombs", label: "Бомбочки для ванны" },
       { key: "perfume", label: "Духи" },
       { key: "antiseptics", label: "Антисептики" },
-    ],
-    cards: [
-      { title: "Свеча Лаванда", description: "Аромат лаванды, 100% воск" },
-      { title: "Скраб Кофе", description: "Скраб с кофе и маслом" },
-      { title: "Мист Роза", description: "Увлажнение и свежесть" },
-      { title: "Бомбочка Цитрус", description: "Эффервесцентная" },
-      { title: "Мыло Олива", description: "Натуральное мыло" },
-      { title: "Духи Лето", description: "Лёгкий аромат" },
-      { title: "Антисептик Лаванда", description: "С ароматом лаванды" },
-      { title: "Свеча Ваниль", description: "Тёплый аромат" },
-      { title: "Свеча Кофе", description: "Аромат кофе" },
-      { title: "Скраб Сахар", description: "Скраб с сахаром" },
+      { key: "other", label: "Другое" },
     ],
   },
   en: {
@@ -136,24 +111,11 @@ useEffect(() => {
     filters: [
       { key: "all", label: "All" },
       { key: "candles", label: "Candles" },
-      { key: "scrubs", label: "Scrubs" },
-      { key: "mists", label: "Mists" },
-      { key: "bathbombs", label: "Bath Bombs" },
       { key: "soap", label: "Soap" },
+      { key: "bathbombs", label: "Bath Bombs" },
       { key: "perfume", label: "Perfume" },
       { key: "antiseptics", label: "Antiseptics" },
-    ],
-    cards: [
-      { title: "Lavender Candle", description: "Lavender scent, 100% wax" },
-      { title: "Coffee Scrub", description: "Scrub with coffee and oil" },
-      { title: "Rose Mist", description: "Moisturizing and freshness" },
-      { title: "Citrus Bath Bomb", description: "Effervescent" },
-      { title: "Olive Soap", description: "Natural soap" },
-      { title: "Summer Perfume", description: "Light fragrance" },
-      { title: "Lavender Antiseptic", description: "With lavender scent" },
-      { title: "Vanilla Candle", description: "Warm aroma" },
-      { title: "Coffee Candle", description: "Coffee aroma" },
-      { title: "Sugar Scrub", description: "Scrub with sugar" },
+      { key: "other", label: "Other" },
     ],
   },
   es: {
@@ -163,24 +125,11 @@ useEffect(() => {
     filters: [
       { key: "all", label: "Todo" },
       { key: "candles", label: "Velas" },
-      { key: "scrubs", label: "Exfoliantes" },
-      { key: "mists", label: "Mists" },
-      { key: "bathbombs", label: "Bombas de baño" },
       { key: "soap", label: "Jabón" },
+      { key: "bathbombs", label: "Bombas de baño" },
       { key: "perfume", label: "Perfume" },
       { key: "antiseptics", label: "Antisépticos" },
-    ],
-    cards: [
-      { title: "Vela de Lavanda", description: "Aroma de лаванда, 100% cera" },
-      { title: "Exfoliante de Café", description: "Exfoliante con café y aceite" },
-      { title: "Mist de Rosa", description: "Hidratación и frescura" },
-      { title: "Bomba de baño Cítrica", description: "Efervescente" },
-      { title: "Jabón de Oliva", description: "Jabón natural" },
-      { title: "Perfume de Verano", description: "Fragancia ligera" },
-      { title: "Antiséptico de Лаванда", description: "Con aroma de лаванда" },
-      { title: "Vela de Vainilla", description: "Aroma cálido" },
-      { title: "Vela de Café", description: "Aroma a café" },
-      { title: "Exfoliante de Azúcar", description: "Exfoliante con azúcar" },
+      { key: "other", label: "Otros" },
     ],
   }
 };
@@ -230,26 +179,20 @@ useEffect(() => {
   </div>
 
   <div className="products-grid">
-          {displayedProducts.map((product, idx) => {
-            // Найти индекс продукта в allProducts
-            const prodIdx = allProducts.findIndex(p => p.id === product.id);
-            const card = translations[lang].cards[prodIdx];
-            return (
-              <div
-                key={product.id}
-                className="product-card"
-                onClick={() => setSelectedProduct(product)}
-                style={{ cursor: "pointer" }}
-              >
-                <img src={product.img} alt={card.title} />
-                <h3>{card.title}</h3>
-                <p className="product-desc">{card.description}</p>
-                <p className="product-price">{product.price}</p>
-              </div>
-            );
-          })}
+        {displayedProducts.map((product) => (
+          <div
+            key={product.id}
+            className="product-card"
+            onClick={() => setSelectedProduct(product)}
+            style={{ cursor: "pointer" }}
+          >
+            <img src={product.img} alt={product.title} />
+            <h3>{product.title}</h3>
+            <p className="product-desc">{product.description}</p>
+            <p className="product-price">{product.price}</p>
+          </div>
+        ))}
         </div>
-
         {totalPages > 1 && (
           <div className="pagination">
             <button onClick={() => setPage((p) => Math.max(p - 1, 1))} disabled={page === 1}>
@@ -268,15 +211,10 @@ useEffect(() => {
       {selectedProduct && (
   <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
     <div className="modal-card">
-      <img src={selectedProduct.img} alt={
-        translations[lang].cards[allProducts.findIndex(p => p.id === selectedProduct.id)].title
-      } className="modal-img" />
-      <h3>{
-        translations[lang].cards[allProducts.findIndex(p => p.id === selectedProduct.id)].title
-      }</h3>
-      <p className="modal-desc">{
-        translations[lang].cards[allProducts.findIndex(p => p.id === selectedProduct.id)].description
-      }</p>
+      <img src={selectedProduct.img} alt={selectedProduct.title} className="modal-img" />
+      <h3>{selectedProduct.title}</h3>
+<p className="modal-desc">{selectedProduct.description}</p>
+
       <p className="modal-price">{selectedProduct.price}</p>
     </div>
   </div>

@@ -1,9 +1,9 @@
 :root {
-  --color-bg-primary: #f8f1f0;       /* нежно-розовый фон */
-  --color-bg-secondary: #ece0d9;     /* светло-бежевый фон карточек */
-  --color-text-primary: #5c4b44;     /* теплый коричневый текст */
-  --color-accent-soft: #d9c2b0;      /* мягкий персиковый акцент */
-  --color-accent-strong: #cf9682;    /* теплый терракотовый акцент */
+  --color-bg-primary: #fff5f7;       /* нежно-розовый (фон) */
+  --color-bg-secondary: #ffe4e9;     /* светлый розово-персиковый (карточки) */
+  --color-text-primary: #5c3b42;     /* теплый насыщенный коричнево-ягодный текст */
+  --color-accent-soft: #f8b4c0;      /* мягкий розовый акцент */
+  --color-accent-strong: #ec4899;    /* яркий малиново-розовый акцент */
   --color-white: #ffffff;
   --color-black: #000000;
 }
