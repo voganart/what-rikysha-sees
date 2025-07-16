@@ -1,7 +1,8 @@
 body {
   font-family: 'Roboto', 'Inter', Arial, sans-serif;
-  background: linear-gradient(to top, #e7d3c4 2%, #fff8f3 98%);
+  background: linear-gradient(to top, var(--color-bg-primary) 2%, var(--color-white) 100%);
 }
+
 .title, h1, h2, h3 {
   font-family: 'Montserrat', Arial, sans-serif;
   letter-spacing: 0.01em;
@@ -25,13 +26,13 @@ body {
 .title {
   font-size: 2.2rem;
   margin: 0;
-  color: #5a3e36;
+  color: var(--color-text-primary);
 }
 
 .subtitle {
   margin-top: 8px;
   font-size: 1rem;
-  color: #7a5c50;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
@@ -45,16 +46,16 @@ body {
 .products-section h2 {
   font-size: 1.8rem;
   margin-bottom: 5px;
-  color: #5a3e36;
+  color: var(--color-text-primary);
 }
 
 .filter-select {
   padding: 8px 12px;
   font-size: 1rem;
   border-radius: 8px;
-  border: 1px solid #a67663;
-  background: #fff;
-  color: #7a5c50;
+  border: 1px solid var(--color-bg-secondary);
+  background: var(--color-white);
+  color: var(--color-text-primary);
   margin-bottom: 0;
   box-shadow: none;
 }
@@ -69,20 +70,20 @@ body {
   margin-right: auto;
 }
 
-
 .product-card {
-  background: #f6e8e1;
+  background: var(--color-bg-secondary);
   border-radius: 16px;
   padding: 12px;
-  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 8px color-mix(in srgb, var(--color-accent-soft) 8%, transparent);
   text-align: center;
   width: 100%;
   max-width: 220px;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s;
 }
 
 .product-card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 8px 16px var(--color-accent-soft);
 }
 
 .product-card img {
@@ -93,19 +94,19 @@ body {
 
 .product-card h3 {
   font-size: 1rem;
-  color: #5a3e36;
+  color: var(--color-accent-strong);
   margin: 4px 0;
 }
 
 .product-desc {
   font-size: 0.8rem;
-  color: #7a5c50;
+  color: var(--color-text-primary);
   margin: 0 0 4px;
 }
 
 .product-price {
   font-weight: 700;
-  color: #a67663;
+  color: var(--color-accent-strong);
   font-size: 0.9rem;
 }
 
@@ -119,12 +120,13 @@ body {
 
 .pagination button {
   padding: 6px 12px;
-  background: #a67663;
+  background: var(--color-accent-soft);
   border: none;
-  color: white;
+  color: var(--color-white);
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .pagination button:disabled {
@@ -134,10 +136,10 @@ body {
 
 .pagination span {
   font-size: 1rem;
-  color: #5a3e36;
+  color: var(--color-text-primary);
 }
 
-@keyframes fadeInOverlay {
+@keyframes overlayFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
@@ -146,46 +148,27 @@ body {
   position: fixed;
   z-index: 1000;
   inset: 0;
-  background: rgba(0,0,0,0.5);
-  opacity: 1;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(232, 128, 116, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: fadeInOverlay 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-overlay[aria-hidden="true"] {
-  opacity: 0;
-  pointer-events: none;
+  animation: overlayFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-card {
-  background: #fff;
+  background: var(--color-white);
   border-radius: 18px;
   padding: 32px 24px 24px 24px;
   max-width: 400px;
   width: 90vw;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  box-shadow: 0 8px 32px rgba(232, 128, 116, 0.18);
   position: relative;
   text-align: center;
-  animation: modalShow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-@keyframes modalShow {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  animation: modalShow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: #a67663;
-  cursor: pointer;
+  color: var(--color-accent-strong);
 }
 
 .modal-img {
@@ -193,34 +176,33 @@ body {
   max-width: 260px;
   border-radius: 14px;
   margin-bottom: 16px;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .modal-desc {
-  font-size: 1.1rem;
-  color: #7a5c50;
-  margin: 12px 0;
+  color: var(--color-text-primary);
 }
 
 .modal-price {
-  font-weight: 700;
-  color: #a67663;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
+  color: var(--color-accent-strong);
 }
 
 .lang-switcher {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
-  margin: 0 0 18px 0; /* верх, право, низ, лево */
+  margin: 0 0 18px 0;
   width: 100%;
 }
 
 .lang-btn {
   padding: 6px 16px;
-  background: #f6e8e1;
-  border: 1px solid #a67663;
-  color: #5a3e36;
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-bg-secondary);
+  color: var(--color-text-primary);
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
@@ -230,9 +212,9 @@ body {
 
 .lang-btn.active,
 .lang-btn:hover {
-  background: #a67663;
-  color: #fff;
-  border-color: #a67663;
+  background: var(--color-accent-soft);
+  color: var(--color-white);
+  border-color: var(--color-accent-strong);
 }
 
 .products-toolbar {
@@ -245,20 +227,52 @@ body {
 
 .products-label {
   font-size: 1.2rem;
-  color: #a67663;
+  color: var(--color-accent-strong);
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 
+.scroll-top-btn {
+  position: fixed;
+  right: 30px;
+  bottom: 32px;
+  z-index: 1200;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(232, 128, 116, 0.18);
+  border-radius: 50%;
+  transition: transform 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.scroll-top-btn svg {
+  width: 40px;
+  height: 40px;
+}
+
+.scroll-top-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px var(--color-accent-soft);
+}
+
 @media (max-width: 600px) {
   .products-grid {
     grid-template-columns: 1fr;
-    justify-items: center; /* Центрирует карточку в сетке */
+    justify-items: center;
   }
   .product-card {
-    max-width: 320px; /* Сделайте карточку шире на мобильных */
+    background: var(--color-bg-secondary);
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 4px 8px color-mix(in srgb, var(--color-accent-soft) 8%, transparent);
+    text-align: center;
     width: 100%;
+    max-width: 220px;
+    transition: transform 0.2s ease, box-shadow 0.2s;
+    border: 1px solid color-mix(in srgb, var(--color-text-primary) 20%, transparent);
   }
   .products-section {
     max-width: 100%;
@@ -270,3 +284,11 @@ body {
   }
 }
 
+html, body {
+  overscroll-behavior-y: contain;
+}
+
+@keyframes modalShow {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

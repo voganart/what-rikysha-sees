@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import guineapigImg from "./assets/Guineapig_1.jpg";
 import rikyshaImg from "./assets/Rikysha_1.jpg";
+import "./colors.css";
 import "./App.css";
 
 
@@ -46,6 +47,9 @@ export default function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [lang, setLang] = useState("ru");
 
+  // Состояние для отображения стрелки
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
 useEffect(() => {
   const handleResize = () => {
     if (window.innerWidth >= 1200) {
@@ -63,10 +67,30 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  const filtered = filter === "Все" ? allProducts : allProducts.filter((p) => p.category === filter);
+  const filtered = filter === "all" ? allProducts : allProducts.filter((p) => p.category === filter);
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   if (page > totalPages) setPage(totalPages || 1);
-}, [itemsPerPage, filter]);
+}, [itemsPerPage, filter, allProducts, page]);
+
+useEffect(() => {
+  const onScroll = () => {
+    setShowScrollTop(window.scrollY > 100);
+  };
+  window.addEventListener("scroll", onScroll);
+  return () => window.removeEventListener("scroll", onScroll);
+}, []);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (selectedProduct) {
+      setSelectedProduct(null); // Закрываем модалку при прокрутке
+    }
+  };
+  if (selectedProduct) {
+    window.addEventListener("scroll", handleScroll);
+  }
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [selectedProduct]);
 
   const filteredProducts =
   filter === "all" ? allProducts : allProducts.filter((p) => p.category === filter);
@@ -149,7 +173,7 @@ useEffect(() => {
     cards: [
       { title: "Vela de Lavanda", description: "Aroma de лаванда, 100% cera" },
       { title: "Exfoliante de Café", description: "Exfoliante con café y aceite" },
-      { title: "Mist de Rosa", description: "Hidratación y frescura" },
+      { title: "Mist de Rosa", description: "Hidratación и frescura" },
       { title: "Bomba de baño Cítrica", description: "Efervescente" },
       { title: "Jabón de Oliva", description: "Jabón natural" },
       { title: "Perfume de Verano", description: "Fragancia ligera" },
@@ -243,8 +267,7 @@ useEffect(() => {
 
       {selectedProduct && (
   <div className="modal-overlay" onClick={() => setSelectedProduct(null)}>
-    <div className="modal-card" onClick={() => setSelectedProduct(null)}>
-      <button className="modal-close" onClick={() => setSelectedProduct(null)}>×</button>
+    <div className="modal-card">
       <img src={selectedProduct.img} alt={
         translations[lang].cards[allProducts.findIndex(p => p.id === selectedProduct.id)].title
       } className="modal-img" />
@@ -258,6 +281,20 @@ useEffect(() => {
     </div>
   </div>
 )}
+
+      {showScrollTop && (
+        <button
+          className="scroll-top-btn"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Наверх"
+        >
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="14" fill="#eae7dc"/>
+            <path d="M14 9 L14 19" stroke="#e85a4f" strokeWidth="2" strokeLinecap="round"/>
+            <path d="M9 14 L14 9 L19 14" stroke="#e85a4f" strokeWidth="2" strokeLinecap="round" fill="none"/>
+          </svg>
+        </button>
+      )}
     </>
   );
 }

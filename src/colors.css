@@ -1,0 +1,9 @@
+:root {
+  --color-bg-primary: #f8f1f0;       /* нежно-розовый фон */
+  --color-bg-secondary: #ece0d9;     /* светло-бежевый фон карточек */
+  --color-text-primary: #5c4b44;     /* теплый коричневый текст */
+  --color-accent-soft: #d9c2b0;      /* мягкий персиковый акцент */
+  --color-accent-strong: #cf9682;    /* теплый терракотовый акцент */
+  --color-white: #ffffff;
+  --color-black: #000000;
+}

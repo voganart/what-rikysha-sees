@@ -79,7 +79,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 git add .
-git commit -m "Обновление: добавил товары"
+git commit -m "add language switch"
 git push
 📌 Это зальёт обновления кода на GitHub.
 
