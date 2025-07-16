@@ -1,17 +1,26 @@
 {
   "files": {
-    "main.css": "/what-rikysha-sees/static/css/main.5e72134c.css",
-    "main.js": "/what-rikysha-sees/static/js/main.9dc54cef.js",
+    "main.css": "/what-rikysha-sees/static/css/main.110d170d.css",
+    "main.js": "/what-rikysha-sees/static/js/main.070ff474.js",
     "static/js/453.5a1a4fd2.chunk.js": "/what-rikysha-sees/static/js/453.5a1a4fd2.chunk.js",
-    "static/media/Guineapig_1.jpg": "/what-rikysha-sees/static/media/Guineapig_1.43d89f0c0dada1927967.jpg",
+    "static/media/Guineapig_1.png": "/what-rikysha-sees/static/media/Guineapig_1.a99ec74031b1eed8bf7b.png",
+    "static/media/painting_1.jpg": "/what-rikysha-sees/static/media/painting_1.3245e373f52483827e2a.jpg",
+    "static/media/antiseptic_1.jpg": "/what-rikysha-sees/static/media/antiseptic_1.894425a6b5b16c51f17e.jpg",
+    "static/media/perfume_1.jpg": "/what-rikysha-sees/static/media/perfume_1.6f4eded503c8eb65568c.jpg",
+    "static/media/soap_1.jpg": "/what-rikysha-sees/static/media/soap_1.7db96f0a66941acf1c32.jpg",
+    "static/media/bathbomb_1.jpg": "/what-rikysha-sees/static/media/bathbomb_1.9751100fd90da30c0717.jpg",
+    "static/media/perfume_2.jpg": "/what-rikysha-sees/static/media/perfume_2.668109fff7e024c7076e.jpg",
+    "static/media/candle_1.jpg": "/what-rikysha-sees/static/media/candle_1.e027027a39cf79b6a6ae.jpg",
     "static/media/Rikysha_1.jpg": "/what-rikysha-sees/static/media/Rikysha_1.ad9a788debfb2fbac173.jpg",
+    "static/media/soap_2.jpg": "/what-rikysha-sees/static/media/soap_2.6ec6434e71798f21631b.jpg",
+    "static/media/candle_2.jpg": "/what-rikysha-sees/static/media/candle_2.d8dddb98ac7b9accad79.jpg",
     "index.html": "/what-rikysha-sees/index.html",
-    "main.5e72134c.css.map": "/what-rikysha-sees/static/css/main.5e72134c.css.map",
-    "main.9dc54cef.js.map": "/what-rikysha-sees/static/js/main.9dc54cef.js.map",
+    "main.110d170d.css.map": "/what-rikysha-sees/static/css/main.110d170d.css.map",
+    "main.070ff474.js.map": "/what-rikysha-sees/static/js/main.070ff474.js.map",
     "453.5a1a4fd2.chunk.js.map": "/what-rikysha-sees/static/js/453.5a1a4fd2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e72134c.css",
-    "static/js/main.9dc54cef.js"
+    "static/css/main.110d170d.css",
+    "static/js/main.070ff474.js"
   ]
 }
