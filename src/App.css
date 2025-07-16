@@ -1,3 +1,12 @@
+body {
+  font-family: 'Roboto', 'Inter', Arial, sans-serif;
+  background: linear-gradient(to top, #e7d3c4 2%, #fff8f3 98%);
+}
+.title, h1, h2, h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  letter-spacing: 0.01em;
+}
+
 .header .container {
   text-align: center;
   max-width: 480px;
@@ -6,9 +15,9 @@
 }
 
 .header-image {
-  width: 130px;
+  width: 180px;
   height: auto;
-  margin: 20px auto 0;
+  margin: 50px auto 0;
   display: block;
   border-radius: 50%;
 }
@@ -35,7 +44,7 @@
 
 .products-section h2 {
   font-size: 1.8rem;
-  margin-bottom: 16px;
+  margin-bottom: 5px;
   color: #5a3e36;
 }
 
@@ -44,15 +53,20 @@
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #a67663;
-  margin-bottom: 24px;
-  cursor: pointer;
+  background: #fff;
+  color: #7a5c50;
+  margin-bottom: 0;
+  box-shadow: none;
 }
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(calc(200px + 25px), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
   gap: 30px;
-  margin-top: 24px;
+  justify-content: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 
@@ -193,3 +207,66 @@
   font-size: 1.2rem;
   margin-bottom: 8px;
 }
+
+.lang-switcher {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin: 0 0 18px 0; /* верх, право, низ, лево */
+  width: 100%;
+}
+
+.lang-btn {
+  padding: 6px 16px;
+  background: #f6e8e1;
+  border: 1px solid #a67663;
+  color: #5a3e36;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+  background: #a67663;
+  color: #fff;
+  border-color: #a67663;
+}
+
+.products-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.products-label {
+  font-size: 1.2rem;
+  color: #a67663;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    justify-items: center; /* Центрирует карточку в сетке */
+  }
+  .product-card {
+    max-width: 320px; /* Сделайте карточку шире на мобильных */
+    width: 100%;
+  }
+  .products-section {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  .lang-switcher {
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+}
+
