@@ -87,7 +87,9 @@ body {
 }
 
 .product-card img {
-  width: 100%;
+  width: 100%;           /* Занимает всю ширину карточки */
+  height: 200px;         /* Фиксированная высота (можно менять) */
+  object-fit: cover;     /* Обрезка и масштабирование по центру */
   border-radius: 12px;
   margin-bottom: 8px;
 }
@@ -146,13 +148,14 @@ body {
 
 .modal-overlay {
   position: fixed;
-  z-index: 1000;
-  inset: 0;
-  background: rgba(232, 128, 116, 0.15);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.4);
   display: flex;
-  align-items: center;
   justify-content: center;
-  animation: overlayFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  padding: 16px; /* чтобы не прижималась к краям экрана */
+  overflow: auto; /* если модалка будет выше экрана - можно прокрутить весь экран */
+  z-index: 999;
 }
 
 .modal-card {
@@ -161,32 +164,45 @@ body {
   padding: 32px 24px 24px 24px;
   max-width: 400px;
   width: 90vw;
+
+  max-height: 100vh;  /* ограничиваем высоту 80% от высоты окна */
+  overflow-y: scroll; /* включаем прокрутку, но... */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE и Edge */
+
   box-shadow: 0 8px 32px rgba(232, 128, 116, 0.18);
   position: relative;
   text-align: center;
   animation: modalShow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close {
-  color: var(--color-accent-strong);
+.modal-img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 14px;
+  display: block;
+  margin: 0 auto 0 auto;
+  object-fit: contain;
+  background-color: white; /* чтобы скругления были видны, если фон прозрачный */
 }
 
-.modal-img {
-  width: 80%;
-  max-width: 260px;
-  border-radius: 14px;
-  margin-bottom: 16px;
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+.modal-card h3 {
+  margin-bottom: var(--spacing);
+  white-space: normal; /* разрешить перенос строк */
+  overflow: visible;   /* показывать весь текст */
+  text-overflow: clip; /* отключить троеточие */
 }
 
 .modal-desc {
-  color: var(--color-text-primary);
+  margin-bottom: var(--spacing);
+  display: block;      /* убрать -webkit-box, чтобы не обрезать */
+  overflow: visible;   /* показать весь текст */
+  text-overflow: clip; /* без троеточия */
+  -webkit-line-clamp: none; /* убрать ограничение по строкам */
 }
 
 .modal-price {
+  margin-top: clamp(8px, 2vw, 16px);
   color: var(--color-accent-strong);
 }
 

@@ -14,17 +14,18 @@ import soap_1 from "./assets/soap_1.jpg";
 import soap_2 from "./assets/soap_2.jpg";
 
 const allProducts = [
-  { id: 1, category: "soap", img: soap_1, titles: { ru: "Мыло", en: "Soap", es: "Jabón" }, descriptions: { ru: "Состав: мыло на основе кокоса, краситель, отдушка.", en: "Ingredients: coconut-based soap, colorant, fragrance.", es: "Ingredientes: jabón a base de coco, colorante, fragancia." }, price: "$5000+" },
-  { id: 2, category: "other", img: painting_1, titles: { ru: "Круглые картины на заказ", en: "Round Paintings on Order", es: "Cuadros redondos por encargo" }, descriptions: { ru: "Покрытие акрилом, можно выбрать цветовую гамму.", en: "Acrylic finish, color scheme can be selected.", es: "Acabado acrílico, se puede elegir la gama de colores." }, price: "$20000+" },
-  { id: 3, category: "candles", img: candle_1, titles: { ru: "Десертные свечи", en: "Dessert Candles", es: "Velas de postre" }, descriptions: { ru: "Состав: соевый воск, краситель, отдушка.", en: "Ingredients: soy wax, colorant, fragrance.", es: "Ingredientes: cera de soja, colorante, fragancia." }, price: "$15000+" },
-  { id: 4, category: "perfume", img: perfume_1, titles: { ru: "Твердые духи (маленькая баночка)", en: "Solid Perfume (Small Jar)", es: "Perfume sólido (frasco pequeño)" }, descriptions: { ru: "Состав: соевый воск, масло миндаля, витамин Е, отдушка.", en: "Ingredients: soy wax, almond oil, vitamin E, fragrance.", es: "Ingredientes: cera de soja, aceite de almendra, vitamina E, fragancia." }, price: "$8000+" },
-  { id: 5, category: "perfume", img: perfume_1, titles: { ru: "Твердые духи (большая баночка)", en: "Solid Perfume (Large Jar)", es: "Perfume sólido (frasco grande)" }, descriptions: { ru: "Состав: соевый воск, масло миндаля, витамин Е, отдушка.", en: "Ingredients: soy wax, almond oil, vitamin E, fragrance.", es: "Ingredientes: cera de soja, aceite de almendra, vitamina E, fragancia." }, price: "$11000+" },
-  { id: 6, category: "soap", img: soap_2, titles: { ru: "Мыло-десерт", en: "Dessert Soap", es: "Jabón de postre" }, descriptions: { ru: "Состав: мыло на основе кокоса, краситель, отдушка.", en: "Ingredients: coconut-based soap, colorant, fragrance.", es: "Ingredientes: jabón a base de coco, colorante, fragancia." }, price: "$10000+" },
-  { id: 7, category: "antiseptics", img: antiseptic_1, titles: { ru: "Антисептик", en: "Antiseptic", es: "Antiséptico" }, descriptions: { ru: "Состав: алоэ-вера, спирт, отдушка, глицерин.", en: "Ingredients: aloe vera, alcohol, fragrance, glycerin.", es: "Ingredientes: aloe vera, alcohol, fragancia, glicerina." }, price: "$8000+" },
-  { id: 8, category: "bathbombs", img: bathbomb_1, titles: { ru: "Бомбочка для ванны (сердце)", en: "Bath Bomb (Heart)", es: "Bomba de baño (corazón)" }, descriptions: { ru: "С подарком или без. Лимонная кислота, сода, масло миндаля и др.", en: "With or without a gift. Citric acid, soda, almond oil, etc.", es: "Con o sin regalo. Ácido cítrico, soda, aceite de almendra, etc." }, price: "$15000+" },
-  { id: 9, category: "perfume", img: perfume_2, titles: { ru: "Масляные духи", en: "Oil Perfume", es: "Perfume de aceite" }, descriptions: { ru: "Состав: масло миндаля, композиция из отдушек.", en: "Ingredients: almond oil, fragrance composition.", es: "Ingredientes: aceite de almendra, composición de fragancias." }, price: "$8000+" },
-  { id: 10, category: "candles", img: candle_2, titles: { ru: "Свечи-напитки со льдом", en: "Drink Candles with Ice", es: "Velas-bebida con hielo" }, descriptions: { ru: "Соевый воск, гелевый парафин, отдушки, краситель.", en: "Soy wax, gel paraffin, fragrances, colorant.", es: "Cera de soja, parafina en gel, fragancias, colorante." }, price: "$15000+" }
+  { id: 1, category: "soap", img: soap_1, titles: { ru: "Мыло", en: "Soap", es: "Jabón" }, descriptions: { ru: "Состав: мыло на основе кокоса, краситель, отдушка.", en: "Ingredients: coconut-based soap, colorant, fragrance.", es: "Ingredientes: jabón a base de coco, colorante, fragancia." }, price: { ru: "от $5000 ARS", en: "from $5000 ARS", es: "desde $5000 ARS" } },
+  { id: 2, category: "other", img: painting_1, titles: { ru: "Круглые картины на заказ", en: "Round Paintings on Order", es: "Cuadros redondos por encargo" }, descriptions: { ru: "Покрытие акрилом, можно выбрать цветовую гамму.", en: "Acrylic finish, color scheme can be selected.", es: "Acabado acrílico, se puede elegir la gama de colores." }, price: { ru: "от $20000 ARS", en: "from $20000 ARS", es: "desde $20000 ARS" } },
+  { id: 3, category: "candles", img: candle_1, titles: { ru: "Десертные свечи", en: "Dessert Candles", es: "Velas de postre" }, descriptions: { ru: "Состав: соевый воск, краситель, отдушка.", en: "Ingredients: soy wax, colorant, fragrance.", es: "Ingredientes: cera de soja, colorante, fragancia." }, price: { ru: "от $15000 ARS", en: "from $15000 ARS", es: "desde $15000 ARS" } },
+  { id: 4, category: "perfume", img: perfume_1, titles: { ru: "Твердые духи (маленькая баночка)", en: "Solid Perfume (Small Jar)", es: "Perfume sólido (frasco pequeño)" }, descriptions: { ru: "Состав: соевый воск, масло миндаля, витамин Е, отдушка.", en: "Ingredients: soy wax, almond oil, vitamin E, fragrance.", es: "Ingredientes: cera de soja, aceite de almendra, vitamina E, fragancia." }, price: { ru: "от $8000 ARS", en: "from $8000 ARS", es: "desde $8000 ARS" } },
+  { id: 5, category: "perfume", img: perfume_1, titles: { ru: "Твердые духи (большая баночка)", en: "Solid Perfume (Large Jar)", es: "Perfume sólido (frasco grande)" }, descriptions: { ru: "Состав: соевый воск, масло миндаля, витамин Е, отдушка.", en: "Ingredients: soy wax, almond oil, vitamin E, fragrance.", es: "Ingredientes: cera de soja, aceite de almendra, vitamina E, fragancia." }, price: { ru: "от $11000 ARS", en: "from $11000 ARS", es: "desde $11000 ARS" } },
+  { id: 6, category: "soap", img: soap_2, titles: { ru: "Мыло-десерт", en: "Dessert Soap", es: "Jabón de postre" }, descriptions: { ru: "Состав: мыло на основе кокоса, краситель, отдушка.", en: "Ingredients: coconut-based soap, colorant, fragrance.", es: "Ingredientes: jabón a base de coco, colorante, fragancia." }, price: { ru: "от $10000 ARS", en: "from $10000 ARS", es: "desde $10000 ARS" } },
+  { id: 7, category: "antiseptics", img: antiseptic_1, titles: { ru: "Антисептик", en: "Antiseptic", es: "Antiséptico" }, descriptions: { ru: "Состав: алоэ-вера, спирт, отдушка, глицерин.", en: "Ingredients: aloe vera, alcohol, fragrance, glycerin.", es: "Ingredientes: aloe vera, alcohol, fragancia, glicerina." }, price: { ru: "от $8000 ARS", en: "from $8000 ARS", es: "desde $8000 ARS" } },
+  { id: 8, category: "bathbombs", img: bathbomb_1, titles: { ru: "Бомбочка для ванны (сердце)", en: "Bath Bomb (Heart)", es: "Bomba de baño (corazón)" }, descriptions: { ru: "С подарком или без. Лимонная кислота, сода, масло миндаля и др.", en: "With or without a gift. Citric acid, soda, almond oil, etc.", es: "Con o sin regalo. Ácido cítrico, soda, aceite de almendra, etc." }, price: { ru: "от $15000 ARS", en: "from $15000 ARS", es: "desde $15000 ARS" } },
+  { id: 9, category: "perfume", img: perfume_2, titles: { ru: "Масляные духи", en: "Oil Perfume", es: "Perfume de aceite" }, descriptions: { ru: "Состав: масло миндаля, композиция из отдушек.", en: "Ingredients: almond oil, fragrance composition.", es: "Ingredientes: aceite de almendra, composición de fragancias." }, price: { ru: "от $8000 ARS", en: "from $8000 ARS", es: "desde $8000 ARS" } },
+  { id: 10, category: "candles", img: candle_2, titles: { ru: "Свечи-напитки со льдом", en: "Drink Candles with Ice", es: "Velas-bebida con hielo" }, descriptions: { ru: "Соевый воск, гелевый парафин, отдушки, краситель.", en: "Soy wax, gel paraffin, fragrances, colorant.", es: "Cera de soja, parafina en gel, fragancias, colorante." }, price: { ru: "от $15000 ARS", en: "from $15000 ARS", es: "desde $15000 ARS" } }
 ];
+
 
 export default function App() {
   const [filter, setFilter] = useState("all");
@@ -205,7 +206,7 @@ export default function App() {
               <img src={product.img} alt={product.title} />
               <h3>{product.titles[lang]}</h3>
               <p className="product-desc">{product.descriptions[lang]}</p>
-              <p className="product-price">{product.price}</p>
+              <p className="product-price">{product.price[lang]}</p>
             </div>
           ))}
         </div>
@@ -231,7 +232,7 @@ export default function App() {
             <img src={selectedProduct.img} alt={selectedProduct.title} className="modal-img" />
             <h3>{selectedProduct.titles[lang]}</h3>
             <p className="modal-desc">{selectedProduct.descriptions[lang]}</p>
-            <p className="modal-price">{selectedProduct.price}</p>
+            <p className="modal-price">{selectedProduct.price[lang]}</p>
           </div>
         </div>
       )}
